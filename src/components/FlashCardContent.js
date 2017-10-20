@@ -47,39 +47,32 @@ class FlashCardContainer extends React.Component {
   render() {
     let { classes } = this.props;
     return (
-      <CardContent className={classes.cardContentContainer}>
-        <div className={classes.titleInfo}>
-          <Typography type="body1" className={classes.title}>
-            {cardContent.frontCategory}
-          </Typography>
-          <Typography type="body1" className={classes.title}>
-            {`${cardContent.number + 1}/${cardContent.deckSize}`}
-          </Typography>
-        </div>
-
-        <div className={classes.cardContent}>
-          <Typography type="headline" component="h2">
-            {cardContent.frontPrimary}
-          </Typography>
-          <Typography type="body1" className={classes.pos}>
-            {cardContent.frontSub}
-          </Typography>
-
-          {cardContent.frontSecondary}
-        </div>
-        <div className={classes.titleBottom}>
-          <Button onClick={this.handleFlip} className={classes.flipButton}>
-            <div className={classes.center}>
-              <Typography type="body1" className={classes.titleBottomText}>
-                Flip to Back
-              </Typography>
-              <Typography type="body1" className={classes.titleBottomText}>
-                <FlipToBack />
-              </Typography>
-            </div>
-          </Button>
-        </div>
-      </CardContent>
+      <div>
+        <Card className={classes.card}>
+          <CardMedia
+            className={classes.media}
+            image="/static/images/cards/contemplative-reptile.jpg"
+            title="Contemplative Reptile"
+          />
+          <CardContent>
+            <Typography type="headline" component="h2">
+              Lizard
+            </Typography>
+            <Typography component="p">
+              Lizards are a widespread group of squamate reptiles, with over
+              6,000 species, ranging across all continents except Antarctica
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button dense color="primary">
+              Share
+            </Button>
+            <Button dense color="primary">
+              Learn More
+            </Button>
+          </CardActions>
+        </Card>
+      </div>
     );
   }
 }
@@ -89,3 +82,93 @@ FlashCardContent.propTypes = {
 };
 
 export default withStyles(styles)(FlashCardContent);
+
+
+
+    <CardContent className={classes.cardContentContainer}>
+      <div className={classes.titleInfo}>
+        <Typography type="body1" className={classes.title}>
+          {cardContent.frontCategory}
+        </Typography>
+        <Typography type="body1" className={classes.title}>
+          {`${cardContent.number + 1}/${cardContent.deckSize}`}
+        </Typography>
+      </div>
+
+      <div className={classes.cardContent}>
+        <Typography type="headline" component="h2">
+          {cardContent.frontPrimary}
+        </Typography>
+        <Typography type="body1" className={classes.pos}>
+          {cardContent.frontSub}
+        </Typography>
+
+        {cardContent.frontSecondary}
+      </div>
+      <div className={classes.titleBottom}>
+        <Button
+          onClick={this.handleFlip}
+          className={classes.flipButton}
+        >
+          <div className={classes.center}>
+            <Typography
+              type="body1"
+              className={classes.titleBottomText}
+            >
+              Flip to Back
+            </Typography>
+            <Typography
+              type="body1"
+              className={classes.titleBottomText}
+            >
+              <FlipToBack />
+            </Typography>
+          </div>
+        </Button>
+      </div>
+    </CardContent>
+
+
+  
+    <CardContent className={classes.cardContentContainer}>
+      <div className={classes.titleInfo}>
+        <Typography type="body1" className={classes.title}>
+          {cardContent.frontCategory}
+        </Typography>
+        <Typography type="body1" className={classes.title}>
+          {`${cardContent.number + 1}/${cardContent.deckSize}`}
+        </Typography>
+      </div>
+      <div className={classes.cardContent}>
+        <Typography type="headline" component="h2">
+          {cardContent.backPrimary}
+        </Typography>
+        <Typography type="body1" className={classes.pos}>
+          {cardContent.backSub}
+        </Typography>
+        <Typography component="p">
+          {cardContent.backSecondary}
+        </Typography>
+      </div>
+      <div className={classes.titleBottom}>
+        <Button
+          onClick={this.handleFlip}
+          className={classes.flipButton}
+        >
+          <div className={classes.center}>
+            <Typography
+              type="body1"
+              className={classes.titleBottomText}
+            >
+              Flip to Front
+            </Typography>
+            <Typography
+              type="body1"
+              className={classes.titleBottomText}
+            >
+              <FlipToFront />
+            </Typography>
+          </div>
+        </Button>
+      </div>
+    </CardContent>

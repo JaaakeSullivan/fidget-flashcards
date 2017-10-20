@@ -53,5 +53,36 @@ export const testData = {
           "https://res.cloudinary.com/dk-find-out/image/upload/q_80,w_1920,f_auto/A-Corbis-42-16057584_q2llwo.jpg"
       }
     ]
+  },
+  Fruits: {
+    title: "Fruits",
+    author: "Somebody Fruited",
+    studySet: [
+      {
+        front: "apple.jpeg",
+        back: "Apple",
+        hint: "Johnny loves planting these."
+      },
+      {
+        front: "banana.jpg",
+        back: "Banana",
+        hint: "Stop monkeying around!"
+      },
+      {
+        front: "cranberry.jpg",
+        back: "Cranberry",
+        hint: "With enough suger, anything tastes great!"
+      },
+      {
+        front: "durian.jpg",
+        back: "Durian",
+        hint: "Seriously, somebody's feet stink"
+      },
+      {
+        front: "elderberry.jpg",
+        back: "Elderberry",
+        hint: "The oldest of the berries."
+      }
+    ]
   }
 };

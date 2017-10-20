@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
-import fidget from "./images/fidget.png";
+// import logo from "./logo.svg";
+import logo from "./images/_logo.png";
 import "./App.css";
 import { testData } from "./data/testData";
 import StudyList from "./components/StudyList";
@@ -38,7 +38,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dataSetOptions: ["Keyboard Shortcuts", "EMC Trivia"],
+      dataSetOptions: ["Keyboard Shortcuts", "EMC Trivia", "Fruits"],
       dataSet: "Keyboard Shortcuts"
     };
   }
@@ -56,13 +56,13 @@ class App extends Component {
           <Grid container spacing={8} className={classes.header}>
             <Hidden only={["xs", "sm"]}>
               <Grid item md={3}>
-                <img src={fidget} className="App-logo" alt="logo" />
+                <img src={logo} className="App-logo" alt="logo" />
               </Grid>
               <Grid item md={6}>
                 <h1 className={classes.appTitle}>Fidget Flashcards 9000</h1>
               </Grid>
               <Grid item md={3}>
-                <img src={fidget} className="App-logo-two" alt="logo" />
+                <img src={logo} className="App-logo-two" alt="logo" />
               </Grid>
             </Hidden>
 
@@ -71,13 +71,13 @@ class App extends Component {
                 <h1 className={classes.appTitle}>Fidget Flashcards</h1>
               </Grid>
               <Grid item xs={4}>
-                <img src={fidget} className="App-logo" alt="logo" />
+                <img src={logo} className="App-logo" alt="logo" />
               </Grid>
               <Grid item xs={4}>
                 <h1 className={classes.appTitle}>9000</h1>
               </Grid>
               <Grid item xs={4}>
-                <img src={fidget} className="App-logo-two" alt="logo" />
+                <img src={logo} className="App-logo-two" alt="logo" />
               </Grid>
             </Hidden>
           </Grid>
