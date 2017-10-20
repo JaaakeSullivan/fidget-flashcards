@@ -6,10 +6,25 @@ import List, { ListSubheader } from "material-ui/List";
 import Divider from "material-ui/Divider";
 import { withStyles } from "material-ui/styles";
 import Checkbox from "material-ui/Checkbox";
+import blueGrey from "material-ui/colors/blueGrey";
+import DeckSelector from "./DeckSelector";
 
 const styles = {
+  root: {},
   list: {
     maxWidth: 960,
+    padding: 20,
+    margin: "0 auto"
+  },
+  controlsContainer: {
+    backgroundColor: blueGrey[900],
+    padding: "0px 20px"
+  },
+  controls: {
+    maxWidth: 960,
+    display: "flex",
+    justifyContent: "space-around",
+    alignItems: "center",
     margin: "0 auto"
   },
   listHeader: {
@@ -32,10 +47,17 @@ class StudyList extends Component {
   componentWillMount() {}
 
   componentDidMount() {
-    console.log(this.props.data);
-
     this.setState({
       studySet: this.props.data.studySet.map(studyItem => {
+        return { ...studyItem, isActive: true, isFlipped: false };
+      })
+    });
+  }
+
+  componentWillReceiveProps(newProps) {
+    console.log(newProps);
+    this.setState({
+      studySet: newProps.data.studySet.map(studyItem => {
         return { ...studyItem, isActive: true, isFlipped: false };
       })
     });
@@ -46,7 +68,6 @@ class StudyList extends Component {
   };
 
   toggleActive = id => {
-    console.log(id);
     let newStudySet = this.state.studySet;
     newStudySet[id].isActive = !newStudySet[id].isActive;
     this.setState({ studySet: newStudySet });
@@ -57,13 +78,22 @@ class StudyList extends Component {
     let { studySet } = this.state;
     let { classes } = this.props;
     return (
-      <div>
-        <FlashCardContainer
-          title={title}
-          studySet={this.state.studySet.filter(item => {
-            return item.isActive;
-          })}
-        />
+      <div className={classes.root}>
+        <div className={classes.controlsContainer}>
+          <div className={classes.controls}>
+            <DeckSelector
+              dataSet={this.props.dataSet}
+              dataSetOptions={this.props.dataSetOptions}
+              switchDeck={this.props.switchDeck}
+            />
+            <FlashCardContainer
+              title={title}
+              studySet={this.state.studySet.filter(item => {
+                return item.isActive;
+              })}
+            />
+          </div>
+        </div>
         <List
           subheader={
             <ListSubheader className={classes.listHeader}>
@@ -80,7 +110,6 @@ class StudyList extends Component {
         >
           <Divider />
           {studySet.map((studyItem, i) => {
-            console.log(i);
             return (
               <StudyListItem
                 studyItem={studyItem}

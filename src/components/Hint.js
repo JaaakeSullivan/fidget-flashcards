@@ -51,7 +51,7 @@ class Hint extends Component {
           onClick={this.handleClickButton}
         >
           <HelpOutline />
-        </Button>,
+        </Button>
         <Popover
           open={this.state.hintOpen}
           anchorEl={this.state.anchorEl}

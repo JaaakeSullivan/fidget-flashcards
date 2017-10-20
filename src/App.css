@@ -3,15 +3,22 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
+  animation: App-logo-spin 10s ease-out;
   height: 80px;
+  margin-bottom: -30px;
+}
+
+.App-logo-two {
+  animation: App-logo-two-spin 10s ease-out;
+  height: 80px;
+  margin-bottom: -30px;
 }
 
 .App-header {
-  background-color: #222;
+  /*background-color: #222;
   height: 150px;
   padding: 20px;
-  color: white;
+  color: white;*/
 }
 
 .App-title {
@@ -23,6 +30,19 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(12600deg);
+  }
+}
+
+@keyframes App-logo-two-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-12600deg);
+  }
 }

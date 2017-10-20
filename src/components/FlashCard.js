@@ -23,6 +23,7 @@ const styles = theme => ({
     perspective: "2000px",
     width: "90%",
     maxWidth: "960px"
+
     // backgroundColor: "red"
   },
   card: {
@@ -30,7 +31,8 @@ const styles = theme => ({
     backfaceVisibility: "hidden",
     width: "100%",
     height: "500px",
-    marginTop: "20px"
+    marginTop: "20px",
+    borderRadius: 10
   },
   cardContentContainer: {
     display: "flex",
@@ -121,7 +123,6 @@ class FlashCard extends React.Component {
 
   render() {
     const { cardContent, classes } = this.props;
-    console.log(this.props);
 
     return (
       <div>
@@ -171,9 +172,8 @@ class FlashCard extends React.Component {
                         <Typography type="body1" className={classes.pos}>
                           {cardContent.frontSub}
                         </Typography>
-                        <Typography component="p">
-                          {cardContent.frontSecondary}
-                        </Typography>
+
+                        {cardContent.frontSecondary}
                       </div>
                       <div className={classes.titleBottom}>
                         <Button

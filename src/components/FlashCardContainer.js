@@ -24,7 +24,8 @@ const styles = {
   },
   appBar: {
     position: "relative",
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: blueGrey[900]
   },
   flex: {
     flex: 1
@@ -187,7 +188,7 @@ class FlashCardContainer extends React.Component {
 
     return (
       <div>
-        <Button raised onClick={this.handleClickOpen}>
+        <Button raised color="accent" onClick={this.handleClickOpen}>
           Open Flashcards
         </Button>
         <Dialog
