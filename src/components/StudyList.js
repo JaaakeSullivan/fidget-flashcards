@@ -6,6 +6,7 @@ import List, { ListSubheader } from "material-ui/List";
 import Divider from "material-ui/Divider";
 import { withStyles } from "material-ui/styles";
 import Checkbox from "material-ui/Checkbox";
+import Avatar from "material-ui/Avatar";
 import blueGrey from "material-ui/colors/blueGrey";
 import DeckSelector from "./DeckSelector";
 
@@ -33,6 +34,9 @@ const styles = {
     alignItems: "center",
     padding: 10,
     paddingRight: 35
+  },
+  selectAll: {
+    marginLeft: 10
   }
 };
 
@@ -63,8 +67,17 @@ class StudyList extends Component {
     });
   }
 
+  isAllActive = element => {
+    return element.isActive;
+  };
+
   toggleAll = () => {
-    console.log("Feature coming soon!");
+    let value = this.state.studySet.every(this.isAllActive);
+    console.log("value", value);
+    let newStudySet = this.state.studySet.map(studyItem => {
+      return { ...studyItem, isActive: !value };
+    });
+    this.setState({ studySet: newStudySet });
   };
 
   toggleActive = id => {
@@ -97,7 +110,12 @@ class StudyList extends Component {
         <List
           subheader={
             <ListSubheader className={classes.listHeader}>
-              <Checkbox checked={true} onClick={() => this.toggleAll()} />
+              <Avatar className={classes.selectAll}>
+                <Checkbox
+                  checked={this.state.studySet.every(this.isAllActive)}
+                  onClick={() => this.toggleAll()}
+                />
+              </Avatar>
               <div>
                 <div style={{ lineHeight: "18px" }}>{title}</div>
                 <div style={{ lineHeight: "18px" }}>{`by ${author}`}</div>

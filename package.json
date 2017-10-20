@@ -10,7 +10,8 @@
     "react-dom": "^16.0.0",
     "react-motion": "^0.5.2",
     "rxjs": "^5.5.0",
-    "rxjs-react-component": "^0.2.4"
+    "rxjs-react-component": "^0.2.4",
+    "typeface-orbitron": "0.0.40"
   },
   "devDependencies": {
     "react-scripts": "1.0.14"

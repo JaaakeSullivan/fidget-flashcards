@@ -22,6 +22,9 @@ const styles = {
   root: {
     backgroundColor: blueGrey[500]
   },
+  flashCardButton: {
+    minHeight: 44
+  },
   appBar: {
     position: "relative",
     alignItems: "center",
@@ -188,7 +191,12 @@ class FlashCardContainer extends React.Component {
 
     return (
       <div>
-        <Button raised color="accent" onClick={this.handleClickOpen}>
+        <Button
+          raised
+          color="accent"
+          onClick={this.handleClickOpen}
+          className={classes.flashCardButton}
+        >
           Open Flashcards
         </Button>
         <Dialog

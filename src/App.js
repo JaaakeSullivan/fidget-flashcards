@@ -6,6 +6,9 @@ import { testData } from "./data/testData";
 import StudyList from "./components/StudyList";
 import { withStyles } from "material-ui/styles";
 import blueGrey from "material-ui/colors/blueGrey";
+import "typeface-orbitron";
+import Grid from "material-ui/Grid";
+import Hidden from "material-ui/Hidden";
 
 const styles = {
   root: {
@@ -13,12 +16,18 @@ const styles = {
     minHeight: "100vh",
     backgroundColor: blueGrey[500]
   },
+  headerContainer: {
+    backgroundColor: blueGrey[900]
+  },
   header: {
-    backgroundColor: blueGrey[900],
     //height: "100px",
     padding: "20px",
-    color: "white"
+    color: "white",
+    fontFamily: "Orbitron",
+    maxWidth: 960,
+    margin: "0 auto"
   },
+  appTitle: {},
   content: {
     height: "100%"
     //padding: 10
@@ -43,13 +52,37 @@ class App extends Component {
 
     return (
       <div className={classes.root}>
-        <header className={classes.header}>
-          <h1 className="App-title">
-            <img src={fidget} className="App-logo" alt="logo" />
-            <span>Fidget Flashcards 9000</span>
-            <img src={fidget} className="App-logo-two" alt="logo" />
-          </h1>
-        </header>
+        <div className={classes.headerContainer}>
+          <Grid container spacing={8} className={classes.header}>
+            <Hidden only={["xs", "sm"]}>
+              <Grid item md={3}>
+                <img src={fidget} className="App-logo" alt="logo" />
+              </Grid>
+              <Grid item md={6}>
+                <h1 className={classes.appTitle}>Fidget Flashcards 9000</h1>
+              </Grid>
+              <Grid item md={3}>
+                <img src={fidget} className="App-logo-two" alt="logo" />
+              </Grid>
+            </Hidden>
+
+            <Hidden only={["md", "lg", "xl"]}>
+              <Grid item xs={12}>
+                <h1 className={classes.appTitle}>Fidget Flashcards</h1>
+              </Grid>
+              <Grid item xs={4}>
+                <img src={fidget} className="App-logo" alt="logo" />
+              </Grid>
+              <Grid item xs={4}>
+                <h1 className={classes.appTitle}>9000</h1>
+              </Grid>
+              <Grid item xs={4}>
+                <img src={fidget} className="App-logo-two" alt="logo" />
+              </Grid>
+            </Hidden>
+          </Grid>
+        </div>
+
         <div className={classes.content}>
           <StudyList
             data={testData[this.state.dataSet]}

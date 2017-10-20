@@ -33,7 +33,7 @@ export const testData = {
     ]
   },
   "EMC Trivia": {
-    title: "Study Set 2",
+    title: "EMC Trivia",
     author: "Jake of all trades",
     studySet: [
       {
