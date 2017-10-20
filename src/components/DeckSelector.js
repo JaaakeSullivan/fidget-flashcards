@@ -56,7 +56,7 @@ class DeckSelector extends React.Component {
             onClick={this.handleClickListItem}
           >
             <ListItemText
-              primary="Flashcard Deck"
+              primary="Deck Selection"
               secondary={this.props.dataSet}
               className={classes.listDisplay}
             />
