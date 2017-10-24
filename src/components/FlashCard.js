@@ -68,7 +68,7 @@ const styles = theme => ({
   },
   media: {
     height: 300,
-    width: 400,
+    width: "100%",
     borderRadius: 2,
     boxShadow: "inset 0px 3px 16px 3px rgba(0,0,0,0.75)"
   },
