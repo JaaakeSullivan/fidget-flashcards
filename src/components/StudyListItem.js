@@ -14,8 +14,9 @@ import {
 import { withStyles } from "material-ui/styles";
 import grey from "material-ui/colors/grey";
 import Hint from "./Hint";
-
 import HelpOutline from "material-ui-icons/HelpOutline";
+
+import CardLittle from "../TEMPLATES/CardLittle";
 
 const styles = theme => ({
   root: {
@@ -39,6 +40,8 @@ class StudyListItem extends Component {
   render() {
     let { classes } = this.props;
     let { front, back, hint, isActive } = this.props.studyItem;
+    let cardInfo = this.props.studyItem;
+
     return (
       <div>
         <ListItem
@@ -61,6 +64,7 @@ class StudyListItem extends Component {
 
           <Hint position="left" hint={hint} />
         </ListItem>
+        <CardLittle content={cardInfo} />
         <Divider />
       </div>
     );

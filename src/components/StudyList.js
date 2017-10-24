@@ -33,7 +33,8 @@ const styles = {
     justifyContent: "space-between",
     alignItems: "center",
     padding: 10,
-    paddingRight: 35
+    paddingRight: 35,
+    background: blueGrey[500]
   },
   selectAll: {
     marginLeft: 10
@@ -90,6 +91,8 @@ class StudyList extends Component {
     let { title, author } = this.props.data;
     let { studySet } = this.state;
     let { classes } = this.props;
+    console.log(studySet);
+
     return (
       <div className={classes.root}>
         <div className={classes.controlsContainer}>
