@@ -9,11 +9,14 @@ const styles = theme => ({
   root: {
     width: "100%",
     maxWidth: 250
+
     //background: theme.palette.background.paper
   },
+
   listDisplay: {
     color: "white",
-    backgroundColor: blueGrey[100]
+    backgroundColor: blueGrey[100],
+    borderRadius: 2
     // display: "flex",
     // flexDirection: "column",
     // justifyContent: "space around"

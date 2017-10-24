@@ -1,74 +1,98 @@
-import React, { Component } from "react";
-import { findDOMNode } from "react-dom";
-
-import Checkbox from "material-ui/Checkbox";
-import Avatar from "material-ui/Avatar";
-import Typography from "material-ui/Typography";
-import Divider from "material-ui/Divider";
-import {
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  ListItemSecondaryAction
-} from "material-ui/List";
+import React from "react";
+import PropTypes from "prop-types";
 import { withStyles } from "material-ui/styles";
+import Card, { CardActions, CardContent, CardMedia } from "material-ui/Card";
+import Button from "material-ui/Button";
+import Typography from "material-ui/Typography";
 import grey from "material-ui/colors/grey";
+import Divider from "material-ui/Divider";
+import Checkbox from "material-ui/Checkbox";
 import Hint from "./Hint";
-import HelpOutline from "material-ui-icons/HelpOutline";
+import { GridList, GridListTile, GridListTileBar } from "material-ui/GridList";
 
-import CardLittle from "../TEMPLATES/CardLittle";
-
-const styles = theme => ({
-  root: {
+const styles = {
+  card: {
+    borderRadius: "10px"
+    //height: 250
+  },
+  cardTopText: {
+    minHeight: 100,
     display: "flex",
     alignItems: "center",
-    borderRadius: 10,
-    marginBottom: 10
+    justifyContent: "center",
+    padding: 10
   },
-  button: {},
-  typography: {
-    margin: theme.spacing.unit * 2
+  media: {
+    minHeight: 150,
+    width: "100%",
+    margin: "0 auto",
+    borderRadius: "10px 10px 0 0"
+  },
+  flexActions: {
+    display: "flex",
+    justifyContent: "space-between"
+    //padding: 10
   }
-});
+};
 
-class StudyListItem extends Component {
-  /* Toggle active / inactive */
-  handleToggle = id => {
-    this.props.toggleActive(id);
+function StudyListItem(props) {
+  const { classes } = props;
+  const imgRegex = /.jpg/;
+  const { front, back, hint, isActive } = props.content;
+  console.log(front, back);
+
+  let handleToggle = id => {
+    props.toggleActive(id);
   };
 
-  render() {
-    let { classes } = this.props;
-    let { front, back, hint, isActive } = this.props.studyItem;
-    let cardInfo = this.props.studyItem;
-
-    return (
-      <div>
-        <ListItem
-          style={{
-            backgroundColor: isActive ? "white" : grey[100],
-            opacity: isActive ? 1 : 0.4
-          }}
-          className={classes.root}
-        >
-          <Checkbox
-            checked={isActive}
-            onClick={() => this.handleToggle(this.props.id)}
-          />
-
-          <ListItemText
-            primary={front}
-            secondary={back}
-            onClick={() => this.handleToggle(this.props.id)}
-          />
-
-          <Hint position="left" hint={hint} />
-        </ListItem>
-        <CardLittle content={cardInfo} />
-        <Divider />
-      </div>
-    );
-  }
+  return (
+    <div>
+      <Card
+        className={classes.card}
+        style={{
+          backgroundColor: isActive ? "white" : grey[100],
+          opacity: isActive ? 1 : 0.4
+        }}
+        raised={isActive}
+      >
+        {front.endsWith(".jpg") |
+        front.endsWith(".jpeg") |
+        front.endsWith(".png") ? (
+          <div>
+            <CardMedia
+              className={classes.media}
+              image={require(`../images/${front}`)}
+              title={back}
+            />
+          </div>
+        ) : (
+          <div>
+            <Typography type="" component="h2" className={classes.cardTopText}>
+              {front}
+            </Typography>
+            <Divider />
+          </div>
+        )}
+        <CardContent>
+          <Typography type="headline" component="h2">
+            {back}
+          </Typography>
+        </CardContent>
+        <CardActions className={classes.flexActions}>
+          <Checkbox checked={isActive} onClick={() => handleToggle(props.id)} />
+          <Hint hint={hint} position="left" />
+        </CardActions>
+      </Card>
+    </div>
+  );
 }
+
+StudyListItem.propTypes = {
+  classes: PropTypes.object.isRequired,
+  heading: PropTypes.string,
+  subheading: PropTypes.string,
+  image: PropTypes.string,
+  actions: PropTypes.array
+};
 
 export default withStyles(styles)(StudyListItem);

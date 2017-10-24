@@ -18,34 +18,36 @@ import Shuffle from "material-ui-icons/Shuffle";
 import Hint from "./Hint";
 import blueGrey from "material-ui/colors/blueGrey";
 
-const styles = {
-  root: {
-    backgroundColor: blueGrey[500]
-  },
-  flashCardButton: {
-    minHeight: 44
-  },
-  appBar: {
-    position: "relative",
-    alignItems: "center",
-    backgroundColor: blueGrey[900]
-  },
-  flex: {
-    flex: 1
-  },
-  background: {
-    backgroundColor: blueGrey[500]
-  },
-  toolBarStyle: {
-    display: "flex",
-    justifyContent: "space-between",
-    width: "100%",
-    maxWidth: "960px"
-  },
-  stepperStyles: {
-    display: "absolute",
-    width: "80%"
-  }
+const styles = theme => {
+  return {
+    root: {
+      backgroundColor: blueGrey[500]
+    },
+    flashCardButton: {
+      minHeight: 44
+    },
+    appBar: {
+      position: "relative",
+      alignItems: "center",
+      backgroundColor: blueGrey[900]
+    },
+    flex: {
+      flex: 1
+    },
+    background: {
+      backgroundColor: blueGrey[500]
+    },
+    toolBarStyle: {
+      display: "flex",
+      justifyContent: "space-between",
+      width: "100%",
+      maxWidth: "600px"
+    },
+    stepperStyles: {
+      display: "absolute",
+      width: "80%"
+    }
+  };
 };
 
 class FlashCardContainer extends React.Component {

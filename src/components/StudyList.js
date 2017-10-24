@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import FlashCardContainer from "./FlashCardContainer";
-import StudyListItem from "./StudyListItem";
 import List, { ListSubheader } from "material-ui/List";
 import Divider from "material-ui/Divider";
 import { withStyles } from "material-ui/styles";
@@ -9,6 +8,8 @@ import Checkbox from "material-ui/Checkbox";
 import Avatar from "material-ui/Avatar";
 import blueGrey from "material-ui/colors/blueGrey";
 import DeckSelector from "./DeckSelector";
+import StudyListItem from "./StudyListItem";
+import Grid from "material-ui/Grid";
 
 const styles = {
   root: {},
@@ -129,17 +130,20 @@ class StudyList extends Component {
           }
           className={classes.list}
         >
-          <Divider />
-          {studySet.map((studyItem, i) => {
-            return (
-              <StudyListItem
-                studyItem={studyItem}
-                toggleActive={this.toggleActive}
-                key={i}
-                id={i}
-              />
-            );
-          })}
+          <Grid container spacing={24}>
+            {studySet.map((studyItem, i) => {
+              return (
+                <Grid item xs={12} sm={6} md={4} lg={3}>
+                  <StudyListItem
+                    content={studyItem}
+                    toggleActive={this.toggleActive}
+                    key={i}
+                    id={i}
+                  />
+                </Grid>
+              );
+            })}
+          </Grid>
         </List>
       </div>
     );

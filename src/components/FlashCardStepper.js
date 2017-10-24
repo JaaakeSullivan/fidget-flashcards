@@ -8,15 +8,16 @@ import KeyboardArrowRight from "material-ui-icons/KeyboardArrowRight";
 
 const styles = {
   root: {
-    //maxWidth: 400,
+    maxWidth: 600,
     background: "transparent",
     // height: "100%",
     // backgroundColor: "red",
-    position: "absolute",
-    right: "10%",
+    // position: "absolute",
+    //right: "10%",
     width: "80%",
-    marginTop: "530px",
-    justifyContent: "center"
+    marginTop: "430px",
+    justifyContent: "center",
+    margin: "0 auto"
   }
 };
 

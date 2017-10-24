@@ -11,6 +11,9 @@ const styles = theme => ({
   button: {},
   typography: {
     margin: theme.spacing.unit * 2
+  },
+  hintIcon: {
+    color: theme.palette.text.secondary
   }
 });
 
@@ -50,7 +53,7 @@ class Hint extends Component {
           className={classes.button}
           onClick={this.handleClickButton}
         >
-          <HelpOutline />
+          <HelpOutline className={classes.hintIcon} />
         </Button>
         <Popover
           open={this.state.hintOpen}

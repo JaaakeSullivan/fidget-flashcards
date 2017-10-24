@@ -29,6 +29,11 @@ export const testData = {
         front: "select all",
         back: "CTRL + a",
         hint: "The first letter of all"
+      },
+      {
+        front: "new tab",
+        back: "CTRL + t",
+        hint: "T...t...t...tab already"
       }
     ]
   },

@@ -2,7 +2,7 @@
 
 import React from "react";
 import PropTypes from "prop-types";
-import Card, { CardContent } from "material-ui/Card";
+import Card, { CardContent, CardMedia } from "material-ui/Card";
 import Typography from "material-ui/Typography";
 import Button from "material-ui/Button";
 import { withStyles } from "material-ui/styles";
@@ -14,7 +14,8 @@ import CardPicture from "../TEMPLATES/CardPicture";
 
 const styles = theme => ({
   root: {
-    maxWidth: 900
+    // maxWidth: 600,
+    // margin: "0 auto"
   },
   containerContainer: {
     display: "flex",
@@ -24,7 +25,7 @@ const styles = theme => ({
     position: "relative",
     perspective: "2000px",
     width: "90%",
-    maxWidth: "960px"
+    maxWidth: "600px"
 
     // backgroundColor: "red"
   },
@@ -32,7 +33,7 @@ const styles = theme => ({
     position: "absolute",
     backfaceVisibility: "hidden",
     width: "100%",
-    height: "500px",
+    height: "400px",
     marginTop: "20px",
     borderRadius: 10
   },
@@ -64,6 +65,12 @@ const styles = theme => ({
   },
   titleBottomText: {
     color: theme.palette.text.secondary
+  },
+  media: {
+    height: 300,
+    width: 400,
+    borderRadius: 2,
+    boxShadow: "inset 0px 3px 16px 3px rgba(0,0,0,0.75)"
   },
   center: {
     display: "flex",
@@ -133,7 +140,7 @@ class FlashCard extends React.Component {
     };
 
     return (
-      <div>
+      <div className={classes.root}>
         <div>
           <Motion
             style={{
@@ -152,6 +159,7 @@ class FlashCard extends React.Component {
               // `style`
               <div className={classes.containerContainer}>
                 <div className={classes.cardContainer}>
+                  {/*===== BEGIN FRONT OF CARD =====*/}
                   <Card
                     className={classes.card}
                     key="front"
@@ -172,16 +180,30 @@ class FlashCard extends React.Component {
                           {`${cardContent.number + 1}/${cardContent.deckSize}`}
                         </Typography>
                       </div>
-
                       <div className={classes.cardContent}>
-                        <Typography type="headline" component="h2">
+                        {cardContent.frontPrimary.endsWith(".jpg") |
+                        cardContent.frontPrimary.endsWith(".jpeg") |
+                        cardContent.frontPrimary.endsWith(".png") ? (
+                          <CardMedia
+                            className={classes.media}
+                            image={require(`../images/${cardContent.frontPrimary}`)}
+                            title={cardContent.frontPrimary}
+                          />
+                        ) : (
+                          <Typography type="" component="h2">
+                            {cardContent.frontPrimary}
+                          </Typography>
+                        )}
+
+                        {/*<Typography type="" component="h2">
                           {cardContent.frontPrimary}
-                        </Typography>
+                        </Typography>*/}
+
                         <Typography type="body1" className={classes.pos}>
                           {cardContent.frontSub}
                         </Typography>
 
-                        {cardContent.frontSecondary}
+                        <div>{cardContent.frontSecondary}</div>
                       </div>
                       <div className={classes.titleBottom}>
                         <Button
@@ -208,6 +230,8 @@ class FlashCard extends React.Component {
 
                     {/*<CardPicture content={cardContent} />*/}
                   </Card>
+
+                  {/*===== BEGIN BACK OF CARD =====*/}
                   <Card
                     className={classes.card}
                     key="back"
@@ -228,7 +252,7 @@ class FlashCard extends React.Component {
                         </Typography>
                       </div>
                       <div className={classes.cardContent}>
-                        <Typography type="headline" component="h2">
+                        <Typography type="" component="h2">
                           {cardContent.backPrimary}
                         </Typography>
                         <Typography type="body1" className={classes.pos}>

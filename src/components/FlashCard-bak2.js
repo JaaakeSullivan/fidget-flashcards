@@ -10,6 +10,8 @@ import { Motion, spring, presets } from "react-motion";
 import FlipToFront from "material-ui-icons/FlipToFront";
 import FlipToBack from "material-ui-icons/FlipToBack";
 
+import CardPicture from "../TEMPLATES/CardPicture";
+
 const styles = theme => ({
   root: {
     maxWidth: 900
@@ -30,7 +32,7 @@ const styles = theme => ({
     position: "absolute",
     backfaceVisibility: "hidden",
     width: "100%",
-    height: "500px",
+    minHeight: "300px",
     marginTop: "20px",
     borderRadius: 10
   },
@@ -124,6 +126,12 @@ class FlashCard extends React.Component {
   render() {
     const { cardContent, classes } = this.props;
 
+    let cardInfo = {
+      heading: cardContent.front,
+      subHeading: cardContent.back,
+      image: cardContent.image
+    };
+
     return (
       <div>
         <div>
@@ -197,6 +205,8 @@ class FlashCard extends React.Component {
                         </Button>
                       </div>
                     </CardContent>
+
+                    {/*<CardPicture content={cardContent} />*/}
                   </Card>
                   <Card
                     className={classes.card}
