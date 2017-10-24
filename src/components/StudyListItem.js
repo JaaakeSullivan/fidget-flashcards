@@ -32,6 +32,9 @@ const styles = {
     display: "flex",
     justifyContent: "space-between"
     //padding: 10
+  },
+  backText: {
+    paddingBottom: 0
   }
 };
 
@@ -73,13 +76,14 @@ function StudyListItem(props) {
             <Divider />
           </div>
         )}
-        <CardContent>
+        <CardContent className={classes.backText}>
           <Typography type="headline" component="h2">
             {back}
           </Typography>
         </CardContent>
         <CardActions className={classes.flexActions}>
           <Checkbox checked={isActive} onClick={() => handleToggle(props.id)} />
+
           <Hint hint={hint} position="left" />
         </CardActions>
       </Card>

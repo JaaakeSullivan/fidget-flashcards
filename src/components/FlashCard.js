@@ -118,7 +118,7 @@ class FlashCard extends React.Component {
       this.props.cardContent.position === "center" &&
       (e.code === "Space" || e.code === "ArrowUp" || e.code === "ArrowDown")
     ) {
-      this.setState({ isFlipped: !this.state.isFlipped });
+      this.props.flipCard();
     }
   };
 
