@@ -64,7 +64,7 @@ export const testData = {
     author: "Somebody Fruited",
     studySet: [
       {
-        front: "apple.jpeg",
+        front: "apple.jpg",
         back: "Apple",
         hint: "Johnny loves planting these."
       },
